@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import User from './components/Users.json'
+import { useState } from 'react';
+import Header from './components/Header';
+import Cards from './components/Cards';
 
 function App() {
+  const [personaje, setPersonaje] = useState(
+  {
+    superhero:"",
+    publisher:"",
+    alter_ego:"",
+    first_appearance:"",
+    characters:""
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header personaje={personaje}/>
+      <Cards lista={User} setPersonaje={setPersonaje}/>
     </div>
   );
 }
